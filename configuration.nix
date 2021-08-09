@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, nvim, ... }:
 
 {
   imports =
@@ -78,10 +78,9 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  pkgs.overlays = [ inputs.nvim.overlay ];
+  # pkgs.overlays = [ inputs.nvim.overlay ];
   environment.systemPackages = with pkgs; [
-    # inputs.nvim.x86_64-linux.defaultPackage
-    neovim
+    nvim.defaultPackage.${pkgs.system}
     wget
     git
     gcc
