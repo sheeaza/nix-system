@@ -84,13 +84,17 @@
         "nixpkgs-unstable": "nixpkgs-unstable_2"
       },
       "locked": {
-        "narHash": "sha256-57UXltcAOBfjPeSOP/fTRLN9d0dxx9YE3YmnKldFxNU=",
-        "path": "/home/max/project/nvim",
-        "type": "path"
+        "lastModified": 1628402957,
+        "narHash": "sha256-WKtJSmcHWqcfOUunJeAaGyqMqUG3vxmK3m0I4DIgeT8=",
+        "owner": "sheeaza",
+        "repo": "nix-nvim",
+        "rev": "ea7cdcb21ce3b68a70a2a6942e623a080bd107de",
+        "type": "github"
       },
       "original": {
-        "path": "/home/max/project/nvim",
-        "type": "path"
+        "owner": "sheeaza",
+        "repo": "nix-nvim",
+        "type": "github"
       }
     },
     "root": {
