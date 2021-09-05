@@ -75,19 +75,41 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
+  users.defaultUserShell = pkgs.fish;
 
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
+    fzf
     nvim.defaultPackage.${pkgs.system}
+    clang-tools
     wget
-    git
-    gcc
     ripgrep
     tree
     tig
     universal-ctags
     global
+    git
   ];
+  environment.sessionVariables.EDITOR = "vim";
+
+  programs = {
+    tmux = {
+      enable = true;
+      keyMode = "vi";
+      extraConfig = builtins.readFile ./tmuxconf;
+    };
+    fish = {
+      enable = true;
+      promptInit = builtins.readFile ./fishprompt;
+      shellAliases = {
+        l="ls --group-directories-first";
+	la="l -a";
+	ll="l -lh";
+	lla="ll -a";
+	git-root="cd (git rev-parse --show-toplevel)";
+      };
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
